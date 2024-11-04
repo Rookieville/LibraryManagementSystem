@@ -8,12 +8,12 @@ namespace LibraryManagementSystem
         public string Author { get; set; }
         public bool IsBorrowed { get; set; }
 
-        public Book(int id, string title, string author, bool isBorrowed)
+        public Book(int id, string title, string author)
         {
             ID = id;
             Title = title;
             Author = author;
-            IsBorrowed = isBorrowed;
+            IsBorrowed = false;
         }
 
         public override string ToString()
