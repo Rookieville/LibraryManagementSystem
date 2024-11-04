@@ -32,7 +32,13 @@ namespace LibraryManagementSystem
                 {
                     case 1:
                         Console.Write("\nEnter book id:");
-                        int id = int.Parse(Console.ReadLine());
+                        string idInput = Console.ReadLine();
+
+                        if (!int.TryParse(idInput, out int id))
+                        {
+                            Console.WriteLine("Invalid input! Please enter a numeric ID.");
+                            break;
+                        }
 
                         Console.Write("Enter book title:");
                         string title = Console.ReadLine();
