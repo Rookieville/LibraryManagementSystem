@@ -53,16 +53,16 @@ namespace LibraryManagementSystem
             Book book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("Book not found");
+                Console.WriteLine("\nBook not found");
             }
             else if (book.IsBorrowed)
             {
-                Console.WriteLine("Book is already borrowed");
+                Console.WriteLine("\nBook is already borrowed");
             }
             else
             {
                 book.IsBorrowed = true;
-                Console.WriteLine("Book borrowed successfully");
+                Console.WriteLine("\nBook borrowed successfully");
             }
         }
 
@@ -71,16 +71,16 @@ namespace LibraryManagementSystem
             Book book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("Book not found");
+                Console.WriteLine("\nBook not found");
             }
             else if (!book.IsBorrowed)
             {
-                Console.WriteLine("Book is not borrowed");
+                Console.WriteLine("\nBook is not borrowed");
             }
             else
             {
                 book.IsBorrowed = false;
-                Console.WriteLine("Book returned successfully");
+                Console.WriteLine("\nBook returned successfully");
             }
         }
     }
