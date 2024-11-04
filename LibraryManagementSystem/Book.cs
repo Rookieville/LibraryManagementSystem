@@ -18,7 +18,7 @@ namespace LibraryManagementSystem
 
         public override string ToString()
         {
-            return $"ID: {ID}, Title: {Title}, Author: {Author}, IsBorrowed: {(IsBorrowed ? "Borrowed" : "Available")}";
+            return $"ID: {ID}, Title: {Title}, Author: {Author}, Status: {(IsBorrowed ? "Borrowed" : "Available")}";
         }
     }
 
