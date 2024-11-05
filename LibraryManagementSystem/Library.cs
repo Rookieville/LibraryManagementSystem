@@ -9,7 +9,7 @@ namespace LibraryManagementSystem
         public void AddBook(Book book)
         {
             books.Add(book);
-            Console.WriteLine("Book added successfully");
+            Console.WriteLine("\nBook added successfully");
         }
 
 
@@ -21,7 +21,7 @@ namespace LibraryManagementSystem
             }
             else
             {
-                Console.WriteLine("Books in the library:");
+                Console.WriteLine("\nBooks in the library:");
                 foreach (var book in books)
                 {
 
