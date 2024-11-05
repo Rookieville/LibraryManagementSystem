@@ -37,39 +37,45 @@ namespace LibraryManagementSystem
         }
 
 
-        public void BorrowBook(int id)
+        public bool BorrowBook(int id)
         {
             Book? book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("\nBook not found");
+                Console.WriteLine("\nBook not found.");
+                return false;
             }
             else if (book.IsBorrowed)
             {
-                Console.WriteLine("\nBook is already borrowed");
+                Console.WriteLine("\nBook is already borrowed.");
+                return false;
             }
             else
             {
                 book.IsBorrowed = true;
-                Console.WriteLine("\nBook borrowed successfully");
+                Console.WriteLine("\nBook borrowed successfully.");
+                return true;
             }
         }
 
-        public void ReturnBook(int id)
+        public bool ReturnBook(int id)
         {
             Book? book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("\nBook not found");
+                Console.WriteLine("\nBook not found.");
+                return false;
             }
             else if (!book.IsBorrowed)
             {
-                Console.WriteLine("\nBook is not borrowed");
+                Console.WriteLine("\nBook was not borrowed.");
+                return false;
             }
             else
             {
                 book.IsBorrowed = false;
-                Console.WriteLine("\nBook returned successfully");
+                Console.WriteLine("\nBook returned successfully.");
+                return true;
             }
         }
     }
