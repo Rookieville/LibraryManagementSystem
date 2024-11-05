@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-
-
 
 namespace LibraryManagementSystem
 {
@@ -35,22 +31,15 @@ namespace LibraryManagementSystem
         }
 
         //helper method to find books
-        public Book FindBookById(int id)
+        public Book? FindBookById(int id)
         {
-            foreach (var book in books)
-            {
-                if (book.ID == id)
-                {
-                    return book;
-                }
-            }
-            return null;
+            return books.Find(b => b.ID == id);
         }
 
 
         public void BorrowBook(int id)
         {
-            Book book = FindBookById(id);
+            Book? book = FindBookById(id);
             if (book == null)
             {
                 Console.WriteLine("\nBook not found");
@@ -68,7 +57,7 @@ namespace LibraryManagementSystem
 
         public void ReturnBook(int id)
         {
-            Book book = FindBookById(id);
+            Book? book = FindBookById(id);
             if (book == null)
             {
                 Console.WriteLine("\nBook not found");
