@@ -130,7 +130,6 @@ namespace LibraryManagementSystem
 
             Book book = new Book(id, title, author);
             library.AddBook(book);
-            Console.WriteLine("\nBook added successfully");
         }
 
         public static void BorrowBook(Library library)
