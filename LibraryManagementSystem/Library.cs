@@ -3,7 +3,7 @@ namespace LibraryManagementSystem
 {
     public class Library
     {
-        private List<Book> books = new List<Book>();
+        private readonly List<Book> books = new List<Book>();
 
 
         public void AddBook(Book book)
@@ -36,46 +36,39 @@ namespace LibraryManagementSystem
             return books.Find(b => b.ID == id);
         }
 
-
-        public bool BorrowBook(int id)
+        public (string message, bool success) BorrowBook(int id)
         {
             Book? book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("\nBook not found.");
-                return false;
+                return ("\nBook not found.", false);
             }
             else if (book.IsBorrowed)
             {
-                Console.WriteLine("\nBook is already borrowed.");
-                return false;
+                return ("\nBook is already borrowed.", false);
             }
             else
             {
                 book.IsBorrowed = true;
-                Console.WriteLine("\nBook borrowed successfully.");
-                return true;
+                return ("\nBook borrowed successfully.", true);
             }
         }
 
-        public bool ReturnBook(int id)
+        public (string message, bool success) ReturnBook(int id)
         {
             Book? book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("\nBook not found.");
-                return false;
+                return ("\nBook not found.", false);
             }
             else if (!book.IsBorrowed)
             {
-                Console.WriteLine("\nBook was not borrowed.");
-                return false;
+                return ("\nBook was not borrowed.", false);
             }
             else
             {
                 book.IsBorrowed = false;
-                Console.WriteLine("\nBook returned successfully.");
-                return true;
+                return ("\nBook returned successfully.", false);
             }
         }
     }

@@ -135,18 +135,20 @@ namespace LibraryManagementSystem
         private static void BorrowBook(Library library)
         {
             int borrowID = GetValidBookId(library);
-            if (!library.BorrowBook(borrowID))
+            var borrowResult = library.BorrowBook(borrowID);
+            if (!borrowResult.success)
             {
-                Console.WriteLine("Unable to borrow book.");
+                Console.WriteLine($"Unable to borrow book: {borrowResult.message}");
             }
         }
 
         private static void ReturnBook(Library library)
         {
             int returnID = GetValidBookId(library);
-            if (!library.ReturnBook(returnID))
+            var returnResult = library.ReturnBook(returnID);
+            if (!returnResult.success)
             {
-                Console.WriteLine("Unable to return book.");
+                Console.WriteLine($"Unable to return book: {returnResult.message}");
             }
         }
     }
