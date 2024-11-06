@@ -122,7 +122,7 @@ namespace LibraryManagementSystem
             return author;
         }
 
-        public static void AddNewBook(Library library)
+        private static void AddNewBook(Library library)
         {
             int id = GetValidBookId(library, true);
             string title = GetValidBookTitle();
@@ -132,7 +132,7 @@ namespace LibraryManagementSystem
             library.AddBook(book);
         }
 
-        public static void BorrowBook(Library library)
+        private static void BorrowBook(Library library)
         {
             int borrowID = GetValidBookId(library);
             if (!library.BorrowBook(borrowID))
@@ -141,7 +141,7 @@ namespace LibraryManagementSystem
             }
         }
 
-        public static void ReturnBook(Library library)
+        private static void ReturnBook(Library library)
         {
             int returnID = GetValidBookId(library);
             if (!library.ReturnBook(returnID))
