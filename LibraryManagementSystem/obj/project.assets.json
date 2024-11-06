@@ -8,25 +8,26 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/kennyobeng/.nuget/packages/": {}
+    "/Users/kwakuegyirbiney/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kennyobeng/Downloads/Projects/Personal/CsharpProjects/LibraryManagementSystem/LibraryManagementSystem/LibraryManagementSystem.csproj",
+      "projectUniqueName": "/Users/kwakuegyirbiney/Desktop/LibraryManagementSystem/LibraryManagementSystem/LibraryManagementSystem.csproj",
       "projectName": "LibraryManagementSystem",
-      "projectPath": "/Users/kennyobeng/Downloads/Projects/Personal/CsharpProjects/LibraryManagementSystem/LibraryManagementSystem/LibraryManagementSystem.csproj",
-      "packagesPath": "/Users/kennyobeng/.nuget/packages/",
-      "outputPath": "/Users/kennyobeng/Downloads/Projects/Personal/CsharpProjects/LibraryManagementSystem/LibraryManagementSystem/obj/",
+      "projectPath": "/Users/kwakuegyirbiney/Desktop/LibraryManagementSystem/LibraryManagementSystem/LibraryManagementSystem.csproj",
+      "packagesPath": "/Users/kwakuegyirbiney/.nuget/packages/",
+      "outputPath": "/Users/kwakuegyirbiney/Desktop/LibraryManagementSystem/LibraryManagementSystem/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/kennyobeng/.nuget/NuGet/NuGet.Config"
+        "/Users/kwakuegyirbiney/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/hubtel/_packaging/hubtel/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -38,11 +39,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -64,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

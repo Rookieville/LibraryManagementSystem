@@ -1,8 +1,7 @@
-﻿using System;
-
+﻿
 namespace LibraryManagementSystem
 {
-    public class Program
+    public static class Program
     {
         public static void Main()
         {
@@ -31,24 +30,7 @@ namespace LibraryManagementSystem
                 switch (option)
                 {
                     case 1:
-                        Console.Write("\nEnter book id:");
-                        string idInput = Console.ReadLine();
-
-                        if (!int.TryParse(idInput, out int id))
-                        {
-                            Console.WriteLine("Invalid input! Please enter a numeric ID.");
-                            break;
-                        }
-
-                        Console.Write("Enter book title:");
-                        string title = Console.ReadLine();
-
-                        Console.Write("Enter book author:");
-                        string author = Console.ReadLine();
-
-                        Book newBook = new Book(id, title, author);
-                        library.AddBook(newBook);
-                        Console.WriteLine("\nBook added successfully!");
+                        AddNewBook(library);
                         break;
 
                     case 2:
@@ -56,15 +38,11 @@ namespace LibraryManagementSystem
                         break;
 
                     case 3:
-                        Console.Write("\nEnter book ID to borrow: ");
-                        int borrowID = int.Parse(Console.ReadLine());
-                        library.BorrowBook(borrowID);
+                        BorrowBook(library);
                         break;
 
                     case 4:
-                        Console.Write("\nEnter book ID to return: ");
-                        int returnID = int.Parse(Console.ReadLine());
-                        library.ReturnBook(returnID);
+                        ReturnBook(library);
                         break;
 
                     case 5:
@@ -79,6 +57,110 @@ namespace LibraryManagementSystem
                 }
             }
 
+
+
+
+        }
+
+
+        private static int GetValidBookId(Library library, bool isAddingNewBook = false)
+        {
+            int id;
+            while (true)
+            {
+                Console.Write("\nEnter book ID: ");
+                var idInput = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(idInput) || !int.TryParse(idInput, out id))
+                {
+                    Console.WriteLine("Invalid input! Please enter a non-empty numeric ID.");
+                    continue;
+                }
+
+                if (isAddingNewBook && library.FindBookById(id) != null)
+                {
+                    Console.WriteLine("A book with this ID already exists. Please enter a different ID.");
+                    continue;
+                }
+
+                break;
+            }
+            return id;
+        }
+
+        private static string GetValidBookTitle()
+        {
+            string? title;
+            while (true)
+            {
+                Console.Write("Enter book title: ");
+                title = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(title))
+                {
+                    Console.WriteLine("Invalid input! Title cannot be empty.");
+                    continue;
+                }
+                break;
+            }
+            return title;
+        }
+
+        private static string GetValidBookAuthor()
+        {
+            string? author;
+            while (true)
+            {
+                Console.Write("Enter book author: ");
+                author = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(author))
+                {
+                    Console.WriteLine("Invalid input! Author cannot be empty.");
+                    continue;
+                }
+                break;
+            }
+            return author;
+        }
+
+        private static void AddNewBook(Library library)
+        {
+            int id = GetValidBookId(library, true);
+            string title = GetValidBookTitle();
+            string author = GetValidBookAuthor();
+
+            Book book = new Book(id, title, author);
+            library.AddBook(book);
+        }
+
+        private static void BorrowBook(Library library)
+        {
+            int borrowID = GetValidBookId(library);
+            var borrowResult = library.BorrowBook(borrowID);
+            if (!borrowResult.success)
+            {
+                Console.WriteLine($"Unable to borrow book: {borrowResult.message}");
+            }
+            else
+            {
+                Console.WriteLine(borrowResult.message);
+            }
+        }
+
+        private static void ReturnBook(Library library)
+        {
+            int returnID = GetValidBookId(library);
+            var returnResult = library.ReturnBook(returnID);
+            if (!returnResult.success)
+            {
+                Console.WriteLine($"Unable to return book: {returnResult.message}");
+            }
+            else
+            {
+                Console.WriteLine(returnResult.message);
+            }
         }
     }
 }
+
+
+

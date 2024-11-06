@@ -1,19 +1,15 @@
-using System;
-using System.Collections.Generic;
-
-
 
 namespace LibraryManagementSystem
 {
     public class Library
     {
-        private List<Book> books = new List<Book>();
+        private readonly List<Book> books = new List<Book>();
 
 
         public void AddBook(Book book)
         {
             books.Add(book);
-            Console.WriteLine("Book added successfully");
+            Console.WriteLine("\nBook added successfully");
         }
 
 
@@ -25,7 +21,7 @@ namespace LibraryManagementSystem
             }
             else
             {
-                Console.WriteLine("Books in the library:");
+                Console.WriteLine("\nBooks in the library:");
                 foreach (var book in books)
                 {
 
@@ -35,52 +31,44 @@ namespace LibraryManagementSystem
         }
 
         //helper method to find books
-        public Book FindBookById(int id)
+        public Book? FindBookById(int id)
         {
-            foreach (var book in books)
-            {
-                if (book.ID == id)
-                {
-                    return book;
-                }
-            }
-            return null;
+            return books.Find(b => b.ID == id);
         }
 
-
-        public void BorrowBook(int id)
+        public (string message, bool success) BorrowBook(int id)
         {
-            Book book = FindBookById(id);
+            Book? book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("\nBook not found");
+                return ("Book not found.", false);
             }
             else if (book.IsBorrowed)
             {
-                Console.WriteLine("\nBook is already borrowed");
+                return ("Book is already borrowed.", false);
             }
             else
             {
                 book.IsBorrowed = true;
-                Console.WriteLine("\nBook borrowed successfully");
+                return ("\nBook borrowed successfully.", true);
             }
         }
 
-        public void ReturnBook(int id)
+        public (string message, bool success) ReturnBook(int id)
         {
-            Book book = FindBookById(id);
+            Book? book = FindBookById(id);
             if (book == null)
             {
-                Console.WriteLine("\nBook not found");
+                return ("Book not found.", false);
             }
             else if (!book.IsBorrowed)
             {
-                Console.WriteLine("\nBook is not borrowed");
+                return ("Book was not borrowed.", false);
             }
             else
             {
                 book.IsBorrowed = false;
-                Console.WriteLine("\nBook returned successfully");
+                return ("\nBook returned successfully.", true);
             }
         }
     }
