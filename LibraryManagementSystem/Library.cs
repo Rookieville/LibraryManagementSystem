@@ -59,11 +59,11 @@ namespace LibraryManagementSystem
             Book? book = FindBookById(id);
             if (book == null)
             {
-                return ("\nBook not found.", false);
+                return ("Book not found.", false);
             }
             else if (!book.IsBorrowed)
             {
-                return ("\nBook was not borrowed.", false);
+                return ("Book was not borrowed.", false);
             }
             else
             {
