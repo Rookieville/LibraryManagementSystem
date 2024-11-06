@@ -68,7 +68,7 @@ namespace LibraryManagementSystem
             else
             {
                 book.IsBorrowed = false;
-                return ("\nBook returned successfully.", false);
+                return ("\nBook returned successfully.", true);
             }
         }
     }

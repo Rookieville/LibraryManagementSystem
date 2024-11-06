@@ -140,6 +140,10 @@ namespace LibraryManagementSystem
             {
                 Console.WriteLine($"Unable to borrow book: {borrowResult.message}");
             }
+            else
+            {
+                Console.WriteLine(borrowResult.message);
+            }
         }
 
         private static void ReturnBook(Library library)
@@ -149,6 +153,10 @@ namespace LibraryManagementSystem
             if (!returnResult.success)
             {
                 Console.WriteLine($"Unable to return book: {returnResult.message}");
+            }
+            else
+            {
+                Console.WriteLine(returnResult.message);
             }
         }
     }
