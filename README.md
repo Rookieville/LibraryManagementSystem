@@ -38,18 +38,6 @@ The goal of this project is to create a console-based Library Management System 
 
 ---
 
-### User Interaction
-
-The application provides a menu-driven interface for user interaction. Users can perform the following actions by selecting the corresponding menu option:
-
-- **1**: Add a new book
-- **2**: View all books
-- **3**: Borrow a book
-- **4**: Return a book
-- **5**: Exit the application
-
----
-
 ## Program Flow
 
 1. **Main Menu**: The application displays a main menu to guide users through the available options.
@@ -91,6 +79,11 @@ ID: 1, Title: The Great Gatsby, Author: F. Scott Fitzgerald, Status: Borrowed
 Select an option: 4
 Enter book ID to return: 1
 Book returned successfully!
+```
+---
 
-Select an option: 5
-Exiting the application...
+## How to Run
+1. Clone the repository or download the source files.
+2. Open the project in an IDE that supports C# (e.g., Visual Studio).
+3. Build and run the project.
+4. Follow the on-screen prompts to interact with the Library Management Console.
